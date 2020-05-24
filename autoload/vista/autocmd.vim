@@ -83,8 +83,12 @@ function! vista#autocmd#Init(group_name, AUF) abort
     autocmd BufWritePost,BufReadPost, *
           \ call s:GenericAutoUpdate(+expand('<abuf>'), fnamemodify(expand('<afile>'), ':p'))
 
+    " autocmd BufEnter *
+    "      \ call s:OnBufEnter(+expand('<abuf>'), fnamemodify(expand('<afile>'), ':p'))
+
     autocmd BufEnter *
-          \ call s:OnBufEnter(+expand('<abuf>'), fnamemodify(expand('<afile>'), ':p'))
+          \ call s:AutoUpdateWithDelay(+expand('<abuf>'), fnamemodify(expand('<afile>'), ':p'))
+
 
     if g:vista_update_on_text_changed
       autocmd TextChanged,TextChangedI *
