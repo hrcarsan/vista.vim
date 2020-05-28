@@ -4,6 +4,10 @@
 
 function! s:LoadData(container, line) abort
   let line = a:line
+  
+  if !exists('line.line')
+    return
+  endif
 
   let kind = line.kind
 
