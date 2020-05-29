@@ -69,7 +69,9 @@ endif
 " I don't know why. So we jump to the vista window
 " and then replace the lines.
 function! s:SafeSetBufline(bufnr, lines) abort
-  let lines = s:PrependFpath(a:lines)
+  "let lines = s:PrependFpath(a:lines)
+  "let lines = ['', ''] + a:lines
+  let lines =  a:lines
 
   let bufnr = bufnr('')
   call setbufvar(bufnr, '&readonly', 0)
@@ -82,7 +84,7 @@ function! s:SafeSetBufline(bufnr, lines) abort
   call setbufvar(bufnr, '&modifiable', 0)
 
   let filetype = vista#sidebar#WhichFileType()
-  call setbufvar(bufnr, '&filetype', filetype)
+  "call setbufvar(bufnr, '&filetype', filetype)
 
   call vista#ftplugin#Set()
   " Reload vista syntax as you may switch between serveral

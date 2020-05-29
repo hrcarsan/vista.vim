@@ -22,7 +22,7 @@ function! s:NewWindow() abort
 
   " FIXME when to delete?
   if has_key(g:vista.source, 'fpath')
-    let w:vista_first_line_hi_id = matchaddpos('MoreMsg', [1])
+    "let w:vista_first_line_hi_id = matchaddpos('MoreMsg', [1])
   endif
 endfunction
 
