@@ -10,6 +10,7 @@ let s:should_display = v:false
 let s:ctags = get(g:, 'vista_ctags_executable', 'ctags')
 let s:support_json_format =
       \ len(filter(split(system(s:ctags.' --list-features'), '\n'), 'v:val =~# ''^json''')) > 0
+let s:support_json_format = 0
 
 " Expose this variable for debugging
 let g:vista#executive#ctags#support_json_format = s:support_json_format
